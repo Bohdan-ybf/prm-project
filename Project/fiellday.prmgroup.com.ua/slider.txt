@@ -1,0 +1,24 @@
+<!--  <section class="section__4 section__certificates" id="section__4">
+    <div class="container">
+        <p class="about__info__title">Cертифікати</p>
+
+        <div class="certificatesSlider">
+            <div class="slider-item">
+                <img src="/public/img/delete-sert.jpeg" alt="">
+            </div>
+            <div class="slider-item">
+                <img src="/public/img/delete-sert.jpeg" alt="">
+            </div>
+            <div class="slider-item">
+                <img src="/public/img/delete-sert.jpeg" alt="">
+            </div>
+            <div class="slider-item">
+                <img src="/public/img/delete-sert.jpeg" alt="">
+            </div>
+            <div class="slider-item">
+                <img src="/public/img/delete-sert.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+-->

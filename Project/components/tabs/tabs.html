@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taби</title>
+
+    <style>
+        /* ============Taби============ */
+        .section__tabs__site {}
+
+        .site__header-tab {
+            cursor: pointer;
+        }
+
+        .tabs__site__wrapper .active {
+            color: red;
+        }
+
+        .tab__item__box {
+            display: none;
+        }
+
+        .tab__item__box:first-child {
+            display: block;
+        }
+
+        .tabs__site__header {}
+
+        .site__tab__content {}
+
+        /* ======END======Taби============ */
+    </style>
+</head>
+
+<body>
+
+    <section class="section__tabs__site">
+        <div class="container">
+            <div class="tabs__site__wrapper">
+                <div class="tabs__site__header">
+                    <span class="site__header-tab">TAB 1</span>
+                    <span class="site__header-tab">TAB 2</span>
+                    <span class="site__header-tab">TAB 3</span>
+                </div>
+                <div class="site__tab__content">
+                    <div class="tab__item__box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ducimus
+                        dolorem pariatur commodi laboriosam tempore dolorum consequuntur eum accusamus nemo velit,
+                        dignissimos nostrum. Vitae cumque quasi ad tempora repellendus vel!</div>
+                    <div class="tab__item__box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ducimus
+                        dolorem pariatur commodi laboriosam tempore dolorum consequuntur eum accusamus nemo velit!</div>
+                    <div class="tab__item__box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ducimus
+                        dolorem pariatur commodi laboriosam tempore</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+        // Taби
+        $(".tabs__site__wrapper .site__header-tab").click(function () {
+            $(".tabs__site__wrapper .site__header-tab").removeClass("active").eq($(this).index()).addClass(
+                "active");
+            $(".tab__item__box").hide().eq($(this).index()).fadeIn()
+        }).eq(0).addClass("active");
+    </script>
+
+</body>
+
+</html>

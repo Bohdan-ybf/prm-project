@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-validation</title>
+
+    <style>
+
+        body {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .form {
+            display: inline-block;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 500px;
+        }
+
+        .form__field {
+            margin-bottom: 10px;
+        }
+
+        .form__error {
+            color: red;
+            text-align: left;
+            font-size: 12px;
+            display: block;
+            margin-top: 3px;
+            display: none;
+        }
+
+        .form input {
+            outline: none;
+            display: block;
+            width: 100%;
+            border-radius: 2px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 2px;
+            border: 0;
+            background-color: #ccc;
+            color: #fff;
+        }
+
+         input:valid:not(:placeholder-shown) {
+            border-color: green;
+        } 
+
+        input:invalid:not(:placeholder-shown) {
+            border-color: rgb(255, 0, 0);
+        }
+
+        input:invalid:not(:placeholder-shown)+.form__error {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+
+    <form action="#" class="form">
+        <div class="form__field">
+            <input type="text" name="name" placeholder="Имя" />
+        </div>
+        <div class="form__field">
+            <input type="email" name="name" placeholder="E-Mail*" required />
+             <span class="form__error">Это поле должно содержать E-Mail в формате example@site.com</span>
+        </div>
+
+        <div class="form__field">
+            <input type="tel" name="name" placeholder="Телефон*" pattern="^[0-9*#+]+$" minlength="4" maxlength="15" required />
+           <span class="form__error">Это поле должно содержать телефон в формате +000000</span> 
+        </div>
+
+
+        <button type="submit">Отправить</button>
+    </form>
+    
+</body>
+</html>

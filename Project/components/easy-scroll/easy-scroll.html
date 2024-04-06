@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Плавний скрол</title>
+</head>
+
+<body>
+
+    <a class="nav-link" href="#section1">Section 1</a>
+    <a class="nav-link" href="#section2">Section 2</a>
+    <a class="nav-link" href="#section3">Section 3</a>
+    <a class="nav-link" href="#section4">Section 4</a>
+
+    <div style="height: 1000px;"></div>
+
+    <section id="section1">1</section>
+    <section id="section2">2</section>
+    <section id="section3">3</section>
+    <section id="section4">4</section>
+
+    <div style="height: 2000px;"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+        // Плавний скрол
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+                var target = this.hash;
+                var $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {});
+            });
+        });
+    </script>
+</body>
+
+</html>

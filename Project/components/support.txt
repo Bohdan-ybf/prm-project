@@ -1,0 +1,42 @@
+=====================ОБРІЗКА СЛОВА З ДОДАВАННЯМ ТРЬОХ КРАПОК==========================
+
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+
+==================РАНДОМНІ КАРТИНКИ=============================
+
+https://loremflickr.com/250/130/cars
+
+=====================DISPLAY GRID==========================
+
+display: grid;
+grid-template-columns: 1fr 1fr;
+column-gap: 10px;
+row-gap: 10px;
+
+=====================ВИРІВНЯТИ КАРТИНКУ ПО ЦЕНТРУ==========================
+
+position: absolute;
+top: 50%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%);
+
+=====================TITLE BASE==========================
+
+    <title>NAME</title>
+    <meta name="description" content="NAME" />
+    <meta property="og:title" content="NAME" />
+    <meta property="og:description" content="NAME" />
+
+===============================================
+
+https://realfavicongenerator.net/ ====FAVICON GENERATOR======
+-
+https://www.cssmatic.com/box-shadow =======BOX-SHADOW GENERATOR=====
+-
+https://www.dashword.com/meta-description-generator ======DESCRIPTION-GENERATOR====
+-
+https://codebeautify.org/png-to-base64-converter =======PNG-TO-BASE64-CONVERTER==
+-

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dropdowns_lang {
+            width: 50px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropdowns_lang-item {
+            position: relative;
+
+        }
+
+        .dropdowns_lang-item::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            top: 2px;
+            right: 0;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDEwIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNSA1TDkgMSIgc3Ryb2tlPSIjNUY1RjVGIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=);
+            transition: all ease .2s;
+        }
+
+        .dropdowns_lang.-active .dropdowns_lang-item::before {
+            transform: rotate(180deg);
+            transition: all ease .2s;
+        }
+
+        .dropdowns_lang_content {
+            display: none;
+            position: absolute;
+        }
+
+        .dropdowns_lang.-active .dropdowns_lang_content {
+            display: block;
+        }
+
+        /*
+        .dropdowns_lang:hover .dropdowns_lang_content {
+            display: block;
+        }
+
+        .dropdowns_lang:hover .dropdowns_lang-item::before{
+            transform: rotate(180deg);
+        }
+         */
+    </style>
+</head>
+
+<body>
+
+    <div class="dropdowns_lang">
+        <p class="dropdowns_lang-item">Ua</p>
+        <div class="dropdowns_lang_content">
+            <a href="#" class="lang_shadow-item">En</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $('.dropdowns_lang').on('click', function () {
+            $(this).toggleClass('-active');
+        });
+
+        $(document).on('mouseup', function (e) { // При нажатии на документ
+            let s = $('.dropdowns_lang.-active'); // берём .block.-active
+            if (!s.is(e.target) && s.has(e.target).length === 0) {
+                // Если нажат не он и не его дочернии И сам он существует
+                s.removeClass('-active'); // То удаляем у него класс .active
+            }
+        });
+    </script>
+
+</body>
+
+</html>
