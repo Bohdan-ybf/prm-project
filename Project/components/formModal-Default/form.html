@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <style>
+        /* ==================Form======================== */
+
+        .form-modal-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -10000;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .modal__title {
+            color: rgb(12, 14, 55);
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 45px;
+        }
+
+        .form-modal-wrapper.active {
+            z-index: 100000;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .form-modal {
+            width: 100%;
+            max-width: 610px;
+            background: #ffffff;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .overflow {
+            overflow: hidden;
+        }
+
+        .form-modal__close-button {
+            font-size: 0;
+            width: 24px;
+            min-width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            cursor: pointer;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIuMDAwMDAwIiBoZWlnaHQ9IjQyLjAwMDAwMCIgdmlld0JveD0iMCAwIDQyIDQyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KCTxkZXNjPgoJCQlDcmVhdGVkIHdpdGggUGl4c28uCgk8L2Rlc2M+Cgk8ZGVmcy8+Cgk8cmVjdCBpZD0iRnJhbWUgMTMyNzIyNjQ0OSIgcng9IjIxLjAwMDAwMCIgd2lkdGg9IjQyLjAwMDAwMCIgaGVpZ2h0PSI0Mi4wMDAwMDAiIGZpbGw9IiNGOUY5RjkiIGZpbGwtb3BhY2l0eT0iMS4wMDAwMDAiLz4KCTxwYXRoIGlkPSJWZWN0b3IgMTA1IiBkPSJNMjcgMjdMMjEgMjFMMjcgMTVNMTUgMjYuOTlMMjAuOTkgMjAuOTlMMTUgMTUiIHN0cm9rZT0iIzQzNDM0MyIgc3Ryb2tlLW9wYWNpdHk9IjEuMDAwMDAwIiBzdHJva2Utd2lkdGg9IjIuMDAwMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=);
+            background-size: contain;
+        }
+
+        .form-modal__close-button:hover {
+            opacity: 70%;
+        }
+
+        .form-message {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2000;
+            color: #000000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .form-message.active {
+            display: flex;
+        }
+
+        .form-message-content {
+            position: relative;
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin: 0 15px;
+        }
+
+        .form-message-title {
+            text-align: center;
+            font-weight: 800;
+            color: #FFCC00;
+            font-size: 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .form-message-text {
+            color: #000;
+            font-size: 20px;
+        }
+
+        body.active {
+            overflow: hidden !important;
+        }
+
+
+        @media (max-width: 768px) {
+            .form-modal {
+                margin: 20px;
+            }
+
+            .modal__title {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .form-modal-wrapper.active {
+                overflow: auto;
+            }
+
+        }
+
+        /* =======END===========Form=================== */
+    </style>
+</head>
+
+<body>
+
+    <!-- Форма статична -->
+    <form class="form form-static">
+        <div class="form__field">
+            <input class="form__input" id="name" type="text" placeholder="Імʼя...">
+        </div>
+        <div class="form__field">
+            <input class="form__input" id="phone" type="tel" placeholder="Номер телефону..." pattern="^[0-9*#+]+$"
+                minlength="4" maxlength="15" required>
+        </div>
+
+        <div class="form__field">
+            <input class="form__input" type="email" id="email" placeholder="Пошта..." required>
+        </div>
+        <textarea class="form__textarea" id="comment" name="comment" placeholder="Повідомлення..."></textarea>
+        <button type="submit" class="primary-btn primary-btn-black">Підтвердити</button>
+    </form>
+
+    <!-- Модалка форми -->
+    <div class="form-modal-wrapper" id="modal">
+        <div class="form-modal">
+            <p class="modal__title">Залишити заявку:</p>
+            <form class="form form__modal">
+                <input class="form__input" id="name-modal" type="text" placeholder="Імʼя...">
+                <input class="form__input" id="phone-modal" pattern="^[0-9*#+]+$" minlength="4" maxlength="15" required
+                    type="tel" placeholder="Номер телефону...">
+                <input class="form__input" type="email" id="email-modal" placeholder="Пошта..." required>
+                <textarea class="form__textarea" id="comment-modal" name="comment"
+                    placeholder="Повідомлення..."></textarea>
+                <button type="submit" class="primary-btn primary-btn-black form_button">Підтвердити</button>
+            </form>
+            <button class="form-modal__close-button" id="modal-close" type="button">Close</button>
+
+        </div>
+    </div>
+
+    <!-- Модалка "Дякую!" -->
+    <div class="form-message">
+        <div class="form-message-content">
+            <img class="navbar__logo-img" src="/public/img/prm-logo.svg" alt="prm-logo">
+            <p class="form-message-title">Дякуємо!</p>
+            <p class="form-message-text">Незабаром ми зв’яжемося з вами!</p>
+            <button class="form-modal__close-button " id="modal-close" type="button">Close</button>
+        </div>
+    </div>
+    <button type="button" class="primary-btn primary-btn-black modal-js">Залишити заявку</button>
+    
+
+
+    <script>   
+ // ========================For Form=============================
+
+ const buttonsModal = document.querySelectorAll('.modal-js');
+ if (buttonsModal) {
+     buttonsModal.forEach(function (item) {
+         item.addEventListener('click', (event) => {
+             const modal = document.querySelector('#modal');
+             if (modal) {
+                 modal.classList.add('active');
+                 document.body.classList.add('overflow');
+             }
+         });
+     });
+ }
+
+ const buttonModalClose = document.querySelector('#modal-close');
+ if (buttonModalClose) {
+     buttonModalClose.addEventListener('click', (event) => {
+         const modal = document.querySelector('#modal');
+         if (modal) {
+             modal.classList.remove('active');
+             document.body.classList.remove('overflow');
+         }
+     });
+ }
+
+ $(".form-modal__close-button").click(function () {
+     $(".form-message").removeClass("active");
+ });
+
+
+ $(".form-modal__close-button").click(function () {
+     $("body").removeClass("overflow active");
+ });
+
+
+
+ //E-mail Send ==================================================
+ const form = document.querySelector('.form-static');
+
+ if (form) {
+     form.addEventListener('submit', (event) => {
+         event.preventDefault();
+         event.stopPropagation();
+         let name = document.getElementById('name').value;
+         let phone = document.getElementById('phone').value;
+         let email = document.getElementById('email').value;
+         let comment = document.getElementById('comment').value;
+
+
+         let date = new Date();
+         let timestamp = date.getTime();
+         const data = new FormData();
+         data.append('action', 'submit_form');
+         data.append('name', name);
+         data.append('phone', phone);
+         data.append('email', email);
+         data.append('comment', comment);
+
+
+         fetch('send.php', {
+                 method: "POST",
+                 body: data
+             })
+             .then((response) => response)
+             .then(result => {
+                 console.log(result.status);
+                 if (result.status === 200) {
+                     const formMessage = document.querySelector('.form-message');
+                     const scrollHiden = document.querySelector('body');
+                     const formModalClose = document.querySelector('.form-modal-wrapper');
+                     if (formMessage) {
+                         scrollHiden.classList.add('active');
+                         formMessage.classList.add('active');
+                         formModalClose.classList.remove('active');
+                     }
+                 }
+             });
+     });
+ }
+
+
+ //E-mail Modal Send ==============================================
+ const formModal = document.querySelector('.form__modal');
+
+ if (formModal) {
+     formModal.addEventListener('submit', (event) => {
+         event.preventDefault();
+         event.stopPropagation();
+         let name = document.getElementById('name-modal').value;
+         let phone = document.getElementById('phone-modal').value;
+         let email = document.getElementById('email-modal').value;
+         let comment = document.getElementById('comment-modal').value;
+
+
+         let date = new Date();
+         let timestamp = date.getTime();
+         const data = new FormData();
+         data.append('action', 'submit_form');
+         data.append('name-modal', name);
+         data.append('phone-modal', phone);
+         data.append('email-modal', email);
+         data.append('comment-modal', comment);
+
+
+         fetch('send-modal.php', {
+                 method: "POST",
+                 body: data
+             })
+             .then((response) => response)
+             .then(result => {
+                 console.log(result.status);
+                 if (result.status === 200) {
+                     const formMessage = document.querySelector('.form-message');
+                     const scrollHiden = document.querySelector('body');
+                     const formModalClose = document.querySelector('.form-modal-wrapper');
+                     if (formMessage) {
+                         scrollHiden.classList.add('active');
+                         formMessage.classList.add('active');
+                         formModalClose.classList.remove('active');
+                     }
+                 }
+             });
+     });
+ }
+
+    </script>
+</body>
+</html>
