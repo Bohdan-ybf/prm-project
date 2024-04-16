@@ -198,6 +198,10 @@
   display: inline-block;
 }
 
+.primary-btn:hover {
+  opacity: 85%;
+}
+
 .primary-btn-black {
   color: rgb(255, 255, 255);
   background: rgb(0, 0, 0);
@@ -266,8 +270,6 @@ header.active .dropdowns_lang-item {
   background: rgb(0, 0, 0);
 }
 
-.arrow-scroll.active {}
-
 .arrow-scroll.active::before {
   content: "";
   position: absolute;
@@ -324,14 +326,14 @@ header.active .dropdowns_lang-item {
 }
 
 .header__menu__link {
-  color: #5F5F5F;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 400;
   transition: all ease .2s;
 }
 
 .header__menu__link:hover {
-  color: rgb(63, 63, 63);
+  color: rgb(207, 207, 207);
 }
 
 .nav__group__wrapper {
@@ -362,6 +364,10 @@ header.active .dropdowns_lang-item {
     position: relative;
     z-index: 20;
     display: block;
+  }
+
+  .header__menu__link {
+    color: #5F5F5F;
   }
 
   .navbar__logo-img {
@@ -458,7 +464,6 @@ header.active .dropdowns_lang-item {
     margin-top: 20px;
   }
 
-
 }
 
 /* Dropdowns lang  */
@@ -502,7 +507,7 @@ header.active .dropdowns_lang-item {
 .dropdowns_lang_content {
   display: none;
   position: absolute;
-  background: rgb(255, 242, 210);
+  background: rgb(93, 180, 70);
   width: 100%;
   height: auto;
   max-width: 75px;
@@ -514,7 +519,7 @@ header.active .dropdowns_lang-item {
 }
 
 .dropdowns_lang_content:hover {
-  background: rgb(252, 229, 173);
+  background: rgba(94, 180, 70, 0.692);
 }
 
 .lang_shadow-item {
@@ -576,7 +581,7 @@ header.active .dropdowns_lang-item {
 
 }
 
-.banner__info__text {
+.banner__info__text-black {
   color: rgb(153, 153, 153);
   font-size: 12px;
   font-weight: 400;
@@ -914,7 +919,6 @@ input:invalid:not(:placeholder-shown)+.form__error {
   background: #E9FDE6;
 }
 
-
 .swap-item>a {
   display: block;
   margin-bottom: 30px;
@@ -925,10 +929,6 @@ input:invalid:not(:placeholder-shown)+.form__error {
 
 
 /* Footer */
-
-/* .footer {
-  margin-bottom: 50px;
-} */
 
 .footer-bg {
   background-color: #5DB446;
@@ -982,7 +982,6 @@ input:invalid:not(:placeholder-shown)+.form__error {
     right: 0;
   }
 
-
 }
 
 @media (max-width: 1200px) {
@@ -1008,7 +1007,7 @@ input:invalid:not(:placeholder-shown)+.form__error {
 @media (max-width: 991px) {
   .banner__wrapper {
     flex-direction: column-reverse;
-    padding: 50px 15px;
+    padding: 100px 15px;
     height: auto;
   }
 
@@ -1086,7 +1085,11 @@ input:invalid:not(:placeholder-shown)+.form__error {
 
   .advantages__box {
     padding: 25px 32px;
-    ;
+
+  }
+
+  .banner__info__text-black {
+    padding: 0 15px;
   }
 
   .decor_2 {
@@ -1239,8 +1242,6 @@ input:invalid:not(:placeholder-shown)+.form__error {
     line-height: 175%;
   }
 
-
-
   .about__info__box {
     width: 75%;
   }
@@ -1256,7 +1257,6 @@ input:invalid:not(:placeholder-shown)+.form__error {
   .footer-bg {
     border-radius: 24px 24px 0 0;
   }
-
 
 }
 
