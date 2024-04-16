@@ -7,7 +7,7 @@ $comment = $_POST["comment"];
 $message = '
                 <html>
                 <head>
-                  <title>New application - Fiellday.prmgroup.com.ua</title>
+                  <title>New application - Igel.prmgroup.com.ua</title>
                 </head>
                 <body>
                   <p><b>Name:</b> ' . $name . '</p>
@@ -20,7 +20,7 @@ $message = '
 
 //$to = $email;
 $to = 'b.yaronnyi@gmail.com';
-$subject = 'New application - Fiellday.prmgroup.com.ua';
+$subject = 'New application - Igel.prmgroup.com.ua';
 $headers = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers .= 'From: company.prm.group@gmail.com' . "\r\n" .
