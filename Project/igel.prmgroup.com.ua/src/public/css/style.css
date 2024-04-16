@@ -1374,7 +1374,7 @@ input:invalid:not(:placeholder-shown)+.form__error {
 .form-message-title {
   text-align: center;
   font-weight: 800;
-  color: #FFCC00;
+  color: rgb(93, 180, 70);
   font-size: 40px;
   margin: 30px 0;
   text-align: center;
