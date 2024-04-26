@@ -105,7 +105,7 @@
       }, 900, 'swing', function () {});
   });
 
-  // ========================TEST=============================
+  // ========================FORM BLOCK=============================
 
   const buttonsModal = document.querySelectorAll('.modal-js');
   if (buttonsModal) {
